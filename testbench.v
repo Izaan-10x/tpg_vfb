@@ -9,12 +9,21 @@ module testbench;
     reg         clk;
     reg         reset;
 
-    wire [23:0] axi4s_vid_out_tdata;
-    wire        axi4s_vid_out_tvalid;
-    reg         axi4s_vid_out_tready;
-    wire        axi4s_vid_out_tlast;
-    wire [2:0]  axi4s_vid_out_tuser;
+    // VFB output
+    wire [23:0] vfb_out_tdata;
+    wire        vfb_out_tvalid;
+    reg         vfb_out_tready;
+    wire        vfb_out_tlast;
+    wire [2:0]  vfb_out_tuser;
 
+    // TPG monitor
+    wire [23:0] tpg_mon_tdata;
+    wire        tpg_mon_tvalid;
+    wire        tpg_mon_tlast;
+    wire [2:0]  tpg_mon_tuser;
+    wire	tpg_mon_tready;
+
+    // Control agent
     reg  [6:0]  control_agent_address;
     reg         control_agent_write;
     reg  [3:0]  control_agent_byteenable;
@@ -24,14 +33,20 @@ module testbench;
     wire        control_agent_readdatavalid;
     wire        control_agent_waitrequest;
 
-    system u0 (
-        .clk_clk                     (clk),
-        .reset_reset                 (reset),
-        .axi4s_vid_out_tdata         (axi4s_vid_out_tdata),
-        .axi4s_vid_out_tvalid        (axi4s_vid_out_tvalid),
-        .axi4s_vid_out_tready        (axi4s_vid_out_tready),
-        .axi4s_vid_out_tlast         (axi4s_vid_out_tlast),
-        .axi4s_vid_out_tuser         (axi4s_vid_out_tuser),
+    // DUT ? top module
+    top u0 (
+        .clk                         (clk),
+        .reset                       (reset),
+        .vfb_out_tdata               (vfb_out_tdata),
+        .vfb_out_tvalid              (vfb_out_tvalid),
+        .vfb_out_tready              (vfb_out_tready),
+        .vfb_out_tlast               (vfb_out_tlast),
+        .vfb_out_tuser               (vfb_out_tuser),
+        .tpg_mon_tdata               (tpg_mon_tdata),
+        .tpg_mon_tvalid              (tpg_mon_tvalid),
+        .tpg_mon_tlast               (tpg_mon_tlast),
+        .tpg_mon_tuser               (tpg_mon_tuser),
+        .tpg_mon_tready	      (tpg_mon_tready),
         .control_agent_address       (control_agent_address),
         .control_agent_write         (control_agent_write),
         .control_agent_byteenable    (control_agent_byteenable),
@@ -42,9 +57,11 @@ module testbench;
         .control_agent_waitrequest   (control_agent_waitrequest)
     );
 
+    // Clock
     initial clk = 0;
     always #3.33 clk = ~clk;
 
+    // Tasks
     task write_reg;
         input [6:0]  addr;
         input [31:0] data;
@@ -98,52 +115,76 @@ module testbench;
         end
     endtask
 
-    integer file_out;
-    integer pix_count;
-    integer frame_count;
+    // TPG capture
+    integer tpg_file;
+    integer tpg_pix_count;
+    integer tpg_frame_count;
+    integer tpg_done;
 
     initial begin
-        file_out    = $fopen("/home/izaan/tpg_vfb/sim/output_frame.hex", "w");
-        pix_count   = 0;
-        frame_count = 0;
+        tpg_file        = $fopen("/home/izaan/tpg_vfb/sim/tpg_output.hex", "w");
+        tpg_pix_count   = 0;
+        tpg_frame_count = 0;
+        tpg_done        = 0;
     end
 
     always @(posedge clk) begin
-        if (axi4s_vid_out_tvalid && axi4s_vid_out_tready) begin
-
-            // count frames on SOF pulse
-            if (axi4s_vid_out_tuser[0]) begin
-                $display("[%0t] SOF Frame %0d", $time, frame_count);
-                frame_count = frame_count + 1;
-                pix_count   = 0;
+        if (!tpg_done && tpg_mon_tvalid && tpg_mon_tready) begin
+            if (tpg_mon_tuser[0]) begin
+                $display("[%0t] TPG SOF Frame %0d", $time, tpg_frame_count);
+                tpg_frame_count = tpg_frame_count + 1;
+                tpg_pix_count   = 0;
             end
+            if (tpg_frame_count >= 2 &&
+                tpg_mon_tuser[1] == 1'b0 &&
+                tpg_mon_tuser[0] == 1'b0) begin
+                $fdisplay(tpg_file, "%h", tpg_mon_tdata);
+                tpg_pix_count = tpg_pix_count + 1;
+                if (tpg_pix_count == TOTAL_PIX) begin
+                    $display("[%0t] *** TPG FRAME COMPLETE ***", $time);
+                    $fclose(tpg_file);
+                    tpg_done = 1;
+                end
+            end
+        end
+    end
 
-            // only capture from frame 3 onwards
-            // skip tuser[1]=1 (control/IIP packets)
-            // skip tuser[0]=1 (SOF beat itself)
-            if (frame_count >= 3 &&
-                axi4s_vid_out_tuser[1] == 1'b0 &&
-                axi4s_vid_out_tuser[0] == 1'b0) begin
+    // VFB capture
+    integer vfb_file;
+    integer vfb_pix_count;
+    integer vfb_frame_count;
 
-                $fdisplay(file_out, "%h", axi4s_vid_out_tdata);
-                pix_count = pix_count + 1;
+    initial begin
+        vfb_file        = $fopen("/home/izaan/tpg_vfb/sim/output_frame.hex", "w");
+        vfb_pix_count   = 0;
+        vfb_frame_count = 0;
+    end
 
-                if (axi4s_vid_out_tlast)
-                    $display("[%0t] EOL at pixel %0d", $time, pix_count);
-
-                if (pix_count == TOTAL_PIX) begin
-                    $display("[%0t] *** FRAME %0d COMPLETE ? clean capture ***",
-                             $time, frame_count);
-                    $fclose(file_out);
+    always @(posedge clk) begin
+        if (vfb_out_tvalid && vfb_out_tready) begin
+            if (vfb_out_tuser[0]) begin
+                $display("[%0t] VFB SOF Frame %0d", $time, vfb_frame_count);
+                vfb_frame_count = vfb_frame_count + 1;
+                vfb_pix_count   = 0;
+            end
+            if (vfb_frame_count >= 3 &&
+                vfb_out_tuser[1] == 1'b0 &&
+                vfb_out_tuser[0] == 1'b0) begin
+                $fdisplay(vfb_file, "%h", vfb_out_tdata);
+                vfb_pix_count = vfb_pix_count + 1;
+                if (vfb_pix_count == TOTAL_PIX) begin
+                    $display("[%0t] *** VFB FRAME COMPLETE ***", $time);
+                    $fclose(vfb_file);
                     $stop;
                 end
             end
         end
     end
 
+    // Main stimulus
     initial begin
         reset                    <= 1'b1;
-        axi4s_vid_out_tready     <= 1'b0;
+        vfb_out_tready           <= 1'b0;
         control_agent_address    <= 7'h00;
         control_agent_write      <= 1'b0;
         control_agent_read       <= 1'b0;
@@ -169,12 +210,13 @@ module testbench;
         write_reg(7'h57, 32'h0000_0001);
 
         @(posedge clk);
-        axi4s_vid_out_tready <= 1'b1;
-        $display("[%0t] tready asserted, pixels flowing...", $time);
+        vfb_out_tready <= 1'b1;
+        $display("[%0t] tready asserted", $time);
 
         #5_000_000;
-        $display("[%0t] WATCHDOG: no complete frame.", $time);
-        $fclose(file_out);
+        $display("[%0t] WATCHDOG timeout.", $time);
+        $fclose(vfb_file);
+        $fclose(tpg_file);
         $stop;
     end
 
