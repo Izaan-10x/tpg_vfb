@@ -122,7 +122,7 @@ module testbench;
     integer tpg_done;
 
     initial begin
-        tpg_file        = $fopen("/home/izaan/tpg_vfb/sim/tpg_output.hex", "w");
+        tpg_file        = $fopen("/mnt/ssd2/hamza/tpg_vfb/sim/tpg_output.hex", "w");
         tpg_pix_count   = 0;
         tpg_frame_count = 0;
         tpg_done        = 0;
@@ -155,7 +155,7 @@ module testbench;
     integer vfb_frame_count;
 
     initial begin
-        vfb_file        = $fopen("/home/izaan/tpg_vfb/sim/output_frame.hex", "w");
+        vfb_file        = $fopen("/mnt/ssd2/hamza/tpg_vfb/sim/output_frame.hex", "w");
         vfb_pix_count   = 0;
         vfb_frame_count = 0;
     end

@@ -41,13 +41,13 @@ def hex_to_png(hex_file, out_file):
     print(f"Saved: {out_file}")
 
 hex_to_png(
-    "/home/izaan/tpg_vfb/sim/tpg_output.hex",
-    "/home/izaan/tpg_vfb/sim/tpg_output.png"
+    "/mnt/ssd2/hamza/tpg_vfb/sim/tpg_output.hex",
+    "/mnt/ssd2/hamza/tpg_vfb/sim/tpg_output.png"
 )
 
 hex_to_png(
-    "/home/izaan/tpg_vfb/sim/output_frame.hex",
-    "/home/izaan/tpg_vfb/sim/output_frame.png"
+    "/mnt/ssd2/hamza/tpg_vfb/sim/output_frame.hex",
+    "/mnt/ssd2/hamza/tpg_vfb/sim/output_frame.png"
 )
 
 print("")
