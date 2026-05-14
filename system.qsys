@@ -25,7 +25,7 @@ https://fpgasoftware.intel.com/eula.-->
       <altera:version>1.0</altera:version>
       <altera:description></altera:description>
       <altera:tags></altera:tags>
-      <altera:categories></altera:categories>
+      <altera:categories>Systems</altera:categories>
       <altera:tool>QsysPro</altera:tool>
     </altera:catalog_card_info>
     <altera:altera_system_parameters>

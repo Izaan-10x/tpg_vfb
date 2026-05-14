@@ -186,7 +186,7 @@
           </parameter>
           <parameter>
             <name>FIXED_HEIGHT</name>
-            <value>64</value>
+            <value>36</value>
           </parameter>
           <parameter>
             <name>FIXED_INTERLACE</name>
@@ -261,7 +261,7 @@
         <className>intel_vvp_tpg</className>
         <version>24.5.1</version>
         <name>intel_vvp_tpg_0</name>
-        <uniqueName>system_intel_vvp_tpg_0_intel_vvp_tpg_2451_6thenxq</uniqueName>
+        <uniqueName>system_intel_vvp_tpg_0_intel_vvp_tpg_2451_b6b33ri</uniqueName>
         <nonce>0</nonce>
         <incidentConnections></incidentConnections>
         <path>system_intel_vvp_tpg_0.intel_vvp_tpg_0</path>
@@ -880,7 +880,7 @@
               </parameter>
               <parameter>
                 <name>FIXED_HEIGHT</name>
-                <value>64</value>
+                <value>36</value>
               </parameter>
               <parameter>
                 <name>FIXED_INTERLACE</name>

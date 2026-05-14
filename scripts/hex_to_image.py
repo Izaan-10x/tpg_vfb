@@ -2,7 +2,7 @@ import os
 from PIL import Image
 
 WIDTH  = 64
-HEIGHT = 64
+HEIGHT = 36
 
 def hex_to_png(hex_file, out_file):
     if not os.path.exists(hex_file):

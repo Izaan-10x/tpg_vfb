@@ -5,7 +5,7 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 25.1.1 125 (Future versions may contain additional information.) -->
- <!-- 2026.05.14.13:00:44 -->
+ <!-- 2026.05.14.16:02:44 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
@@ -112,7 +112,7 @@
    name="intel_vvp_tpg_0"
    kind="intel_vvp_tpg"
    version="24.5.1"
-   entity="system_intel_vvp_tpg_0_intel_vvp_tpg_2451_6thenxq"
+   entity="system_intel_vvp_tpg_0_intel_vvp_tpg_2451_b6b33ri"
    library="intel_vvp_tpg_2451"
    path="intel_vvp_tpg_0"
    hpath="intel_vvp_tpg_0"
@@ -217,7 +217,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="FIXED_HEIGHT">
    <type>int</type>
-   <value>64</value>
+   <value>36</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

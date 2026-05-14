@@ -13,7 +13,7 @@ module system_intel_vvp_tpg_0 (
 		output wire [2:0]  axi4s_vid_out_tuser   //              .tuser
 	);
 
-	system_intel_vvp_tpg_0_intel_vvp_tpg_2451_6thenxq intel_vvp_tpg_0 (
+	system_intel_vvp_tpg_0_intel_vvp_tpg_2451_b6b33ri intel_vvp_tpg_0 (
 		.main_clock_clk       (main_clock_clk),       //   input,   width = 1,    main_clock.clk
 		.main_reset_reset     (main_reset_reset),     //   input,   width = 1,    main_reset.reset
 		.axi4s_vid_out_tdata  (axi4s_vid_out_tdata),  //  output,  width = 24, axi4s_vid_out.tdata

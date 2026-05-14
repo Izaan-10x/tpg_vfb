@@ -3,7 +3,7 @@
 module testbench;
 
     parameter IMG_WIDTH  = 64;
-    parameter IMG_HEIGHT = 64;
+    parameter IMG_HEIGHT = 36;
     parameter TOTAL_PIX  = IMG_WIDTH * IMG_HEIGHT;
 
     reg         clk;

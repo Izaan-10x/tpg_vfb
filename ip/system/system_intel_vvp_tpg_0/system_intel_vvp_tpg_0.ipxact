@@ -485,7 +485,7 @@
                 </ipxact:vendorExtensions>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>intel_vvp_tpg_2451/synth/system_intel_vvp_tpg_0_intel_vvp_tpg_2451_6thenxq.v</ipxact:name>
+                <ipxact:name>intel_vvp_tpg_2451/synth/system_intel_vvp_tpg_0_intel_vvp_tpg_2451_b6b33ri.v</ipxact:name>
                 <ipxact:fileType>verilogSource</ipxact:fileType>
                 <ipxact:isIncludeFile>false</ipxact:isIncludeFile>
                 <ipxact:vendorExtensions>

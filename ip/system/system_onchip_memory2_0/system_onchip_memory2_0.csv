@@ -1,4 +1,4 @@
-# system info system_onchip_memory2_0 on 2026.05.14.13:00:30
+# system info system_onchip_memory2_0 on 2026.05.14.16:02:30
 system_info:
 name,value
 DEVICE,10CX220YF780I5G
@@ -6,7 +6,7 @@ DEVICE_FAMILY,Cyclone 10 GX
 GENERATION_ID,0
 #
 #
-# Files generated for system_onchip_memory2_0 on 2026.05.14.13:00:30
+# Files generated for system_onchip_memory2_0 on 2026.05.14.16:02:30
 files:
 filepath,kind,attributes,module,is_top
 sim/system_onchip_memory2_0.v,VERILOG,CONTAINS_INLINE_CONFIGURATION,system_onchip_memory2_0,true
