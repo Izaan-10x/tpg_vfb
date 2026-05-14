@@ -1,129 +1,31 @@
-# =============================================================================
-# Quartus Prime
-# =============================================================================
-
+# Quartus build files
 db/
 incremental_db/
-*.qdb
-*.qrpf
-*.qws
+output_files/
+greybox_tmp/
+simulation/
+
+# Reports
 *.rpt
-*.smsg
 *.summary
+*.smsg
+*.log
+
+# Programming files
 *.sof
 *.pof
 *.jic
-*.rbf
-*.ekp
-*.jam
-*.jbc
-*.svf
-*.ttf
-*.qsf.bak
+
+# Temporary files
 *.bak
-*.sdo
-*.sdc.bak
-output_files/
-*.fit.rpt
-*.map.rpt
-*.asm.rpt
-*.sta.rpt
-*.fit.summary
-*.map.summary
-*.asm.summary
-*.sta.summary
-*.fit.smsg
-*.map.smsg
-*.cmp
-*.pin
-simulation/
-
-# =============================================================================
-# Platform Designer (Qsys)
-# =============================================================================
-
-**/synthesis/
-**/sim_lib/
-**/*_bb.v
-**/*_inst.v
-**/*_inst.vhd
-*.qsys.bak
-*.sopcinfo
-*_generation.tcl
-*_sim/
-*_syn/
-*.vo
-*.vho
-
-# =============================================================================
-# Questa / ModelSim
-# =============================================================================
-
-work/
-questa_lib/
-modelsim_lib/
-*.wlf
-*.wlf.bak
-transcript
-vsim.wlf
-*.log
-*.vcd
-*.evcd
-*.fst
-*.mpf
-modelsim.ini
-
-# =============================================================================
-# Simulation output
-# =============================================================================
-
-sim/waves/*.vcd
-sim/waves/*.wlf
-*.hex
-*.out
-
-# =============================================================================
-# Python
-# =============================================================================
-
-__pycache__/
-*.py[cod]
-*.pyo
-.env
-venv/
-
-# =============================================================================
-# OS junk
-# =============================================================================
-
-.DS_Store
-Thumbs.db
-desktop.ini
-*~
+*.tmp
 *.swp
-*.swo
 
-# =============================================================================
-# VS Code / editors
-# =============================================================================
+# Quartus GUI workspace
+*.qws
 
-.vscode/
-.idea/
-*.code-workspace
-ip/**/**/sim/
-ip/**/**/synth/
-ip/**/*.bsf
-ip/**/*.csv
-ip/**/*.html
-ip/**/*.ipxact
-ip/**/*.qgsimc
-ip/**/*.qgsynthc
-ip/**/*.spd
-ip/**/*.xml
-*.legacy
-qdb/
-/system/
-sim/
-.qsys_edit/
-board.info
-dni/
+# Platform designer generated HDL
+*_inst.v
+*_bb.v
+
+

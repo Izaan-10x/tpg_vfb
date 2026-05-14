@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2021.2_1 2021.05, May 15 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/mnt/ssd2/hamza/tpg_vfb/system/sim/mentor
+valtera_avalon_st_pipeline_base
+Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z2 !s110 1778745775
+!i10b 1
+!s100 ^RNnZIQL1jKP_RP<D=k<;1
+IJfNRf]A0lTURJ5I`MUD=;0
+S1
+R0
+Z3 w1778745652
+8../../altera_avalon_st_pipeline_stage_1930/sim/altera_avalon_st_pipeline_base.v
+F../../altera_avalon_st_pipeline_stage_1930/sim/altera_avalon_st_pipeline_base.v
+!i122 1
+L0 35 185
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2021.2_1;73
+r1
+!s85 0
+31
+Z6 !s108 1778745775.000000
+!s107 ../../altera_avalon_st_pipeline_stage_1930/sim/altera_avalon_st_pipeline_base.v|
+!s90 -reportprogress|300|-sv|../../altera_avalon_st_pipeline_stage_1930/sim/altera_avalon_st_pipeline_base.v|-work|altera_avalon_st_pipeline_stage_1930|
+!i113 0
+Z7 o-sv -work altera_avalon_st_pipeline_stage_1930 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 tCvgOpt 0
+vsystem_altera_avalon_st_pipeline_stage_1930_oiupeiq
+R1
+R2
+!i10b 1
+!s100 8:<PGNcD:IUo]mAWYHcYj1
+I68MQ<]3dVN`oC>PGV755X1
+S1
+R0
+R3
+8../../altera_avalon_st_pipeline_stage_1930/sim/system_altera_avalon_st_pipeline_stage_1930_oiupeiq.sv
+F../../altera_avalon_st_pipeline_stage_1930/sim/system_altera_avalon_st_pipeline_stage_1930_oiupeiq.sv
+!i122 0
+L0 16 171
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 ../../altera_avalon_st_pipeline_stage_1930/sim/system_altera_avalon_st_pipeline_stage_1930_oiupeiq.sv|
+!s90 -reportprogress|300|-sv|../../altera_avalon_st_pipeline_stage_1930/sim/system_altera_avalon_st_pipeline_stage_1930_oiupeiq.sv|-work|altera_avalon_st_pipeline_stage_1930|
+!i113 0
+R7
+R8

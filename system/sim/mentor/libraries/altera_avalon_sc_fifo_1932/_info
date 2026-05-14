@@ -1,0 +1,33 @@
+m255
+K4
+z2
+!s11f vlog 2021.2_1 2021.05, May 15 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/mnt/ssd2/hamza/tpg_vfb/system/sim/mentor
+vsystem_altera_avalon_sc_fifo_1932_onpcouq
+!s110 1778745775
+!i10b 1
+!s100 aoFIF]Wn0X]8dXTIG^=e23
+Ig`73cOW:_lm^JgTb7Tlf01
+R0
+w1778745652
+8../../altera_avalon_sc_fifo_1932/sim/system_altera_avalon_sc_fifo_1932_onpcouq.v
+F../../altera_avalon_sc_fifo_1932/sim/system_altera_avalon_sc_fifo_1932_onpcouq.v
+!i122 0
+L0 34 1357
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2021.2_1;73
+r1
+!s85 0
+31
+!s108 1778745775.000000
+!s107 ../../altera_avalon_sc_fifo_1932/sim/system_altera_avalon_sc_fifo_1932_onpcouq.v|
+!s90 -reportprogress|300|../../altera_avalon_sc_fifo_1932/sim/system_altera_avalon_sc_fifo_1932_onpcouq.v|-work|altera_avalon_sc_fifo_1932|
+!i113 0
+o-work altera_avalon_sc_fifo_1932 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0

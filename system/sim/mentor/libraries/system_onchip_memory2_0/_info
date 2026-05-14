@@ -1,0 +1,33 @@
+m255
+K4
+z2
+!s11f vlog 2021.2_1 2021.05, May 15 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/mnt/ssd2/hamza/tpg_vfb/system/sim/mentor
+vsystem_onchip_memory2_0
+!s110 1778745764
+!i10b 1
+!s100 HOin2RzNEALHQQH96L]1Y2
+I0R]kimYL?hhgX=LGKaBIH0
+R0
+w1778745630
+8../../../ip/system/system_onchip_memory2_0/sim/system_onchip_memory2_0.v
+F../../../ip/system/system_onchip_memory2_0/sim/system_onchip_memory2_0.v
+!i122 0
+L0 6 44
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2021.2_1;73
+r1
+!s85 0
+31
+!s108 1778745764.000000
+!s107 ../../../ip/system/system_onchip_memory2_0/sim/system_onchip_memory2_0.v|
+!s90 -reportprogress|300|../../../ip/system/system_onchip_memory2_0/sim/system_onchip_memory2_0.v|-work|system_onchip_memory2_0|
+!i113 0
+o-work system_onchip_memory2_0 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0
